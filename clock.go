@@ -7,31 +7,39 @@ import (
 // Clock is interface for time operation, so time sensitive application
 // can be easily unit tested by mocking time.
 type Clock interface {
+	// See [time.Now] for details.
 	Now() time.Time
+	// See [time.NewTicker] for details.
 	NewTicker(d time.Duration) *Ticker
+	// See [time.NewTimer] for details.
 	NewTimer(d time.Duration) *Timer
 }
 
-// Timerable is interface for time.Timer.
+// Timerable is interface for [time.Timer].
 type Timerable interface {
+	// See [time.Timer.Reset] for details.
 	Reset(d time.Duration) bool
+	// See [time.Timer.Stop] for details.
 	Stop() bool
 }
 
-// Tickerable is interface for time.Ticker.
+// Tickerable is interface for [time.Ticker].
 type Tickerable interface {
+	// See [time.Ticker.Reset] for details.
 	Reset(d time.Duration)
+	// See [time.Ticker.Stop] for details.
 	Stop()
 }
 
-// Timer is time.Timer drop-in replacement.
+// Timer is [time.Timer] drop-in replacement.
 type Timer struct {
 	// The real timer implementation
 	Timerable
+	// The channel on which the timer are delivered.
 	C <-chan time.Time
 }
 
-// Ticker is time.Ticker drop-in replacement.
+// Ticker is [time.Ticker] drop-in replacement.
 type Ticker struct {
 	// The real ticker implementation
 	Tickerable
