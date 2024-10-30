@@ -17,11 +17,15 @@ import (
 // Default.Ratio field, or it can be scripted in
 // TimerScripts/TickerScripts field.
 type Mock struct {
-	NowScripts    []time.Duration
-	TimerScripts  [][]Script
+	// How much duration clock.Now() will advance.
+	NowScripts []time.Duration
+	// The scripts for clock.Timer.
+	TimerScripts [][]Script
+	// The scripts for clock.Ticker.
 	TickerScripts [][]Script
-	Calls         []string
-
+	// The resulting method calls for test to compare.
+	Calls []string
+	// The default setting for scripts.
 	Default Script
 
 	lock    sync.Mutex
