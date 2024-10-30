@@ -71,7 +71,7 @@ func (m *Mock) incTimeTo(t time.Time) {
 	}
 }
 
-// NewTimer returns a new time.Timer compatible timer.
+// NewTimer returns a new [time.Timer] compatible Timer.
 func (m *Mock) NewTimer(d time.Duration) *Timer {
 	m.Calls = append(m.Calls, "timer "+d.String())
 
@@ -92,7 +92,7 @@ func (m *Mock) NewTimer(d time.Duration) *Timer {
 	}
 }
 
-// NewTicker returns a new time.Ticker compatible ticker.
+// NewTicker returns a new [time.Ticker] compatible Ticker.
 func (m *Mock) NewTicker(d time.Duration) *Ticker {
 	m.Calls = append(m.Calls, "ticker "+d.String())
 
