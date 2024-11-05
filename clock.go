@@ -26,15 +26,15 @@ type Tickerable interface {
 
 // Timer is [time.Timer] drop-in replacement.
 type Timer struct {
-	// The real timer implementation
+	// The real Timer implementation
 	Timerable
-	// The channel on which the timer are delivered.
+	// The channel on which the timer result are delivered.
 	C <-chan time.Time
 }
 
 // Ticker is [time.Ticker] drop-in replacement.
 type Ticker struct {
-	// The real ticker implementation
+	// The real Ticker implementation
 	Tickerable
 	// The channel on which the ticks are delivered.
 	C <-chan time.Time

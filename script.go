@@ -7,7 +7,7 @@ const (
 	DefaultScriptNow time.Duration = time.Millisecond
 
 	// Default speed Script.Ratio for fake timer/ticker.
-	DefaultScriptRatio time.Duration = 100
+	DefaultScriptRatio time.Duration = 10
 )
 
 type Script struct {
